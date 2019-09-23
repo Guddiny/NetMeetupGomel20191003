@@ -1,0 +1,105 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:DemoStyles.ViewModels;assembly=DemoStyles"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+        x:Class="DemoStyles.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="DemoStyles">
+
+  <Design.DataContext>
+    <vm:MainWindowViewModel/>
+  </Design.DataContext>
+
+  <Grid Classes="Wrapper" RowDefinitions="*, Auto">
+
+    <ListBox Items="{Binding Contacts}" SelectedItem="{Binding SelectedContact}">
+      <ListBox.ContextMenu>
+        <ContextMenu>
+          <MenuItem Header="Clear" Command="{Binding DeleteAll}"></MenuItem>
+        </ContextMenu>
+      </ListBox.ContextMenu>
+
+    </ListBox>
+
+    <Grid ColumnDefinitions="*, Auto" Grid.Row="1" Classes="BottomButtons" Height="60">
+      <Border Classes="SearchResults">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+          <TextBlock Text="We have found " ></TextBlock>
+          <TextBlock Text="{Binding Contacts.Count}" ></TextBlock>
+          <TextBlock Text=" items" ></TextBlock>
+        </StackPanel>
+      </Border>
+      <StackPanel Orientation="Horizontal" Grid.Column="1">
+        <Button Classes="SearchResutButton GreenButton"  Width="60" Command="{Binding UpdateUsers}">
+         ->
+        </Button>
+        <Button Classes="SearchResutButton"  Width="60" Command="{Binding DeleteContact}">
+          X
+        </Button>
+      </StackPanel>
+    </Grid>
+  </Grid>
+
+  <Window.Styles>
+
+    <Style Selector="ListBox">
+      <Setter Property="Background" Value="#2c2f3c"></Setter>
+    </Style>
+
+    <Style Selector="ListBox">
+      <Setter Property="ItemTemplate">
+        <DataTemplate>
+          <StackPanel Classes="ContactInfo" Orientation="Vertical">
+            <TextBlock Classes="Name"  Text="{Binding Name}" Margin="5,0,0,0" />
+            <TextBlock Classes="Phone" Text="{Binding Phone}" Margin="5,0,0,0" />
+          </StackPanel>
+        </DataTemplate>
+      </Setter>
+    </Style>
+
+    <Style Selector="StackPanel.ContactInfo TextBlock.Name">
+      <Setter Property="Foreground" Value="#40abbb"></Setter>
+      <Setter Property="FontSize" Value="24"></Setter>
+    </Style>
+
+    <Style Selector="StackPanel.ContactInfo TextBlock.Phone">
+      <Setter Property="Foreground" Value="#bbbfd0"></Setter>
+      <Setter Property="FontSize" Value="16"></Setter>
+    </Style>
+
+    <Style Selector="Grid.Wrapper">
+      <Setter Property="Background" Value="#2c2f3c"></Setter>
+    </Style>
+
+    <Style Selector="Grid.BottomButtons">
+      <Setter Property="Background" Value="#494e5c"></Setter>
+    </Style>
+
+    <Style Selector="Grid.BottomButtons TextBlock">
+      <Setter Property="VerticalAlignment" Value="Center"></Setter>
+      <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+      <Setter Property="FontSize" Value="18"></Setter>
+      <Setter Property="FontWeight" Value="SemiBold"></Setter>
+    </Style>
+
+    <Style Selector="Button.SearchResutButton">
+      <Setter Property="Background" Value="#494e5c"></Setter>
+      <Setter Property="FontSize" Value="32"></Setter>
+      <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+
+    <Style Selector="Button.SearchResutButton:pointerover">
+      <Setter Property="Background" Value="#e49438"></Setter>
+      <Setter Property="BorderThickness" Value="0"></Setter>
+    </Style>
+
+    <Style Selector="Button.GreenButton:pointerover">
+      <Setter Property="Background" Value="LightGreen"></Setter>
+      <Setter Property="BorderThickness" Value="0"></Setter>
+    </Style>
+
+  </Window.Styles>
+
+</Window>
