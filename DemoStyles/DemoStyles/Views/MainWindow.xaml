@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+        Width="400"
         x:Class="DemoStyles.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="DemoStyles">
@@ -12,9 +13,11 @@
     <vm:MainWindowViewModel/>
   </Design.DataContext>
 
-  <Grid Classes="Wrapper" RowDefinitions="*, Auto">
+  <Grid Classes="Wrapper" RowDefinitions="Auto, *, Auto">
 
-    <ListBox Items="{Binding Contacts}" SelectedItem="{Binding SelectedContact}">
+    <TextBox Classes="SearchBox"></TextBox>
+
+    <ListBox Items="{Binding Contacts}" SelectedItem="{Binding SelectedContact}" Grid.Row="1">
       <ListBox.ContextMenu>
         <ContextMenu>
           <MenuItem Header="Clear" Command="{Binding DeleteAll}"></MenuItem>
@@ -23,7 +26,7 @@
 
     </ListBox>
 
-    <Grid ColumnDefinitions="*, Auto" Grid.Row="1" Classes="BottomButtons" Height="60">
+    <Grid ColumnDefinitions="*, Auto" Grid.Row="2" Classes="BottomButtons" Height="60">
       <Border Classes="SearchResults">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
           <TextBlock Text="We have found " ></TextBlock>
@@ -97,6 +100,12 @@
 
     <Style Selector="Button.GreenButton:pointerover">
       <Setter Property="Background" Value="LightGreen"></Setter>
+      <Setter Property="BorderThickness" Value="0"></Setter>
+    </Style>
+
+    <Style Selector="TextBox.SearchBox">
+      <Setter Property="Height" Value="50"></Setter>
+      <Setter Property="FontSize" Value="24"></Setter>
       <Setter Property="BorderThickness" Value="0"></Setter>
     </Style>
 
