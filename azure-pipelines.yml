@@ -11,7 +11,8 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  projectName: 'DemoStyles/DemoStyles.sln'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
+- script: dotnet build $(projectName)  --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
