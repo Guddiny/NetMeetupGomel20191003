@@ -1,14 +1,20 @@
 ﻿using DemoStyles.Models;
 using Newtonsoft.Json;
+using ReactiveUI;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
+using System.Reactive;
+using System.Reactive.Linq;
 using System.Threading.Tasks;
 
 namespace DemoStyles.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
+        private string _content;
+
         public string Greeting => "Welcome to Avalonia!";
 
         public ObservableCollection<Contact> Contacts { get; set; }
@@ -28,6 +34,16 @@ namespace DemoStyles.ViewModels
                     Contacts?.Add(item);
                 }
             }
+        }
+
+        public IObservable<string> Now { get; } = Observable
+            .Timer(DateTimeOffset.Now, TimeSpan.FromSeconds(1))
+            .Select(_ => DateTime.Now.ToString());
+
+        public string SearchText
+        {
+            get => _content;
+            private set => this.RaiseAndSetIfChanged(ref _content, value);
         }
 
         public MainWindowViewModel()
@@ -55,6 +71,11 @@ namespace DemoStyles.ViewModels
                     Phone = "+37529 547 51 8124"
                 }
             };
+
+            var a = this.WhenAnyValue(vm => vm.SearchText)
+                .Throttle(TimeSpan.FromSeconds(1))
+                .Select(query => { Console.WriteLine(query); return query; })
+                .Subscribe();
         }
 
         public void DeleteAll()

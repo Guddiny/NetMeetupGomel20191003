@@ -15,7 +15,7 @@
 
   <Grid Classes="Wrapper" RowDefinitions="Auto, *, Auto">
 
-    <TextBox Classes="SearchBox"></TextBox>
+    <TextBox Classes="SearchBox" Text="{Binding Now^}"></TextBox>
 
     <ListBox Items="{Binding Contacts}" SelectedItem="{Binding SelectedContact}" Grid.Row="1">
       <ListBox.ContextMenu>
