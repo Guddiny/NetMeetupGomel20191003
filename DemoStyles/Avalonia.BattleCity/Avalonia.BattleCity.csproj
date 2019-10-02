@@ -12,6 +12,6 @@
     <PackageReference Include="Avalonia" Version="0.8.2" />
     <PackageReference Include="Avalonia.Skia.Linux.Natives" Version="1.68.0.2" />
 
-    <PackageReference Include="Avalonia.Desktop" Version="0.8.2w" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.8.2" />
   </ItemGroup>
 </Project>
