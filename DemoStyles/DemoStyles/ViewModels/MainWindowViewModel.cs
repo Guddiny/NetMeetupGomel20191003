@@ -36,9 +36,9 @@ namespace DemoStyles.ViewModels
             }
         }
 
-        public IObservable<string> Now { get; } = Observable
-            .Timer(DateTimeOffset.Now, TimeSpan.FromSeconds(1))
-            .Select(_ => DateTime.Now.ToString());
+        //public IObservable<string> Now { get; } = Observable
+        //    .Timer(DateTimeOffset.Now, TimeSpan.FromSeconds(1))
+        //    .Select(_ => DateTime.Now.ToString());
 
         public string SearchText
         {
