@@ -65,32 +65,38 @@
     <!--<Style Selector="StackPanel.ContactInfo TextBlock.Name">
       <Setter Property="Foreground" Value="#40abbb"></Setter>
       <Setter Property="FontSize" Value="24"></Setter>
-    </Style>-->
+    </Style>
 
-    <!--<Style Selector="StackPanel.ContactInfo TextBlock.Phone">
+    <Style Selector="StackPanel.ContactInfo TextBlock.Phone">
       <Setter Property="Foreground" Value="#bbbfd0"></Setter>
       <Setter Property="FontSize" Value="16"></Setter>
-    </Style>-->
+    </Style>
 
-    <!--<Style Selector="Grid.Wrapper">
+    <Style Selector="Grid.Wrapper">
       <Setter Property="Background" Value="#2c2f3c"></Setter>
-    </Style>-->
+    </Style>
 
-    <!--<Style Selector="Grid.BottomButtons">
+    <Style Selector="Grid.BottomButtons">
       <Setter Property="Background" Value="#494e5c"></Setter>
-    </Style>-->
+    </Style>
 
-    <!--<Style Selector="Grid.BottomButtons TextBlock">
+    <Style Selector="Grid.BottomButtons TextBlock">
       <Setter Property="VerticalAlignment" Value="Center"></Setter>
       <Setter Property="HorizontalAlignment" Value="Center"></Setter>
       <Setter Property="FontSize" Value="18"></Setter>
       <Setter Property="FontWeight" Value="SemiBold"></Setter>
-    </Style>-->
+    </Style>
 
-    <!--<Style Selector="Button.SearchResutButton">
+    <Style Selector="Button.SearchResutButton">
       <Setter Property="Background" Value="#494e5c"></Setter>
       <Setter Property="FontSize" Value="32"></Setter>
       <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+
+    <Style Selector="TextBox.SearchBox">
+      <Setter Property="Height" Value="50"></Setter>
+      <Setter Property="FontSize" Value="24"></Setter>
+      <Setter Property="BorderThickness" Value="0"></Setter>
     </Style>-->
 
     <!--<Style Selector="Button.SearchResutButton:pointerover">
@@ -100,12 +106,6 @@
 
     <!--<Style Selector="Button.GreenButton:pointerover">
       <Setter Property="Background" Value="LightGreen"></Setter>
-      <Setter Property="BorderThickness" Value="0"></Setter>
-    </Style>-->
-
-    <!--<Style Selector="TextBox.SearchBox">
-      <Setter Property="Height" Value="50"></Setter>
-      <Setter Property="FontSize" Value="24"></Setter>
       <Setter Property="BorderThickness" Value="0"></Setter>
     </Style>-->
 
